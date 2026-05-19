@@ -833,6 +833,11 @@ footer {
         display: flex;
     }
 
+    /* Navbar must sit above the nav panel so the hamburger stays clickable */
+    .navbar {
+        z-index: 1200;
+    }
+
     .nav-links {
         position: fixed;
         top: 0;
@@ -847,7 +852,7 @@ footer {
         padding: var(--sp-lg) var(--sp-md);
         transition: right 0.4s ease;
         border-left: 1px solid var(--border);
-        z-index: 1050;
+        z-index: 1150;
     }
 
     .nav-links.open {
