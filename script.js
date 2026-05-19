@@ -60,39 +60,37 @@ const activateLink = () => {
 window.addEventListener('scroll', activateLink);
 
 // ========================
-// CONTACT FORM — Formspree
+// CONTACT FORM — WhatsApp
 // ========================
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
+    contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
+
+        const name    = document.getElementById('name').value.trim();
+        const email   = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !message) return;
+
+        const text =
+            `*New message from your portfolio*\n\n` +
+            `*Name:* ${name}\n` +
+            `*Email:* ${email}\n\n` +
+            `*Message:*\n${message}`;
+
+        const whatsappURL = `https://wa.me/923407166377?text=${encodeURIComponent(text)}`;
+        window.open(whatsappURL, '_blank', 'noopener,noreferrer');
+
         const btn = contactForm.querySelector('button[type="submit"]');
         const original = btn.textContent;
-
-        btn.textContent = 'Sending...';
+        btn.textContent = 'Opening WhatsApp →';
         btn.disabled = true;
+        contactForm.reset();
 
-        try {
-            const response = await fetch(contactForm.action, {
-                method: 'POST',
-                body: new FormData(contactForm),
-                headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) {
-                btn.textContent = 'Message Sent!';
-                contactForm.reset();
-                setTimeout(() => {
-                    btn.textContent = original;
-                    btn.disabled = false;
-                }, 4000);
-            } else {
-                btn.textContent = 'Failed — Try Again';
-                btn.disabled = false;
-            }
-        } catch {
-            btn.textContent = 'Failed — Try Again';
+        setTimeout(() => {
+            btn.textContent = original;
             btn.disabled = false;
-        }
+        }, 3000);
     });
 }
