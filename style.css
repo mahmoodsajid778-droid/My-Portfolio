@@ -794,7 +794,7 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .about-img-placeholder {
+    .about-img-frame {
         max-width: 26rem;
     }
 
@@ -817,10 +817,11 @@ footer {
     }
 
     :root {
-        --fs-xl: 5rem;
-        --fs-h2: 3.6rem;
-        --sp-xl: 8rem;
-        --sp-lg: 5rem;
+        --fs-xl: 4.8rem;
+        --fs-h2: 3.4rem;
+        --sp-xl: 6rem;
+        --sp-lg: 3.5rem;
+        --sp-md: 3rem;
     }
 
     .row {
@@ -890,5 +891,69 @@ footer {
 
     section {
         padding: var(--sp-lg) 0;
+    }
+
+    /* Hero: fill full viewport, center content vertically.
+       Reset the desktop padding-top offset (it exists to push content
+       below the fixed navbar on desktop but throws off centering on mobile) */
+    header {
+        background-attachment: scroll;
+        justify-content: center;
+        min-height: 100vh;
+        min-height: 100dvh; /* accounts for mobile browser chrome */
+    }
+
+    .hero-content {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    /* Prevent hero name from overflowing on very small screens */
+    .hero-name {
+        word-break: break-word;
+    }
+
+    /* Backdrop overlay for mobile nav */
+    .nav-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 1040;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+    }
+
+    .nav-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Full-width contact form button */
+    .contact-form .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Tighten section title spacing */
+    .section-title {
+        margin-bottom: var(--sp-md);
+    }
+
+    /* Tighten timeline card padding */
+    .timeline-content {
+        padding: var(--sp-sm);
+    }
+
+    /* Ensure hero description doesn't overflow */
+    .hero-desc {
+        max-width: 100%;
+        font-size: 1.7rem;
+    }
+
+    /* Stack hero socials nicely */
+    .hero-socials {
+        flex-wrap: wrap;
     }
 }

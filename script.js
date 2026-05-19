@@ -4,17 +4,30 @@
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('nav-links');
 
+// Overlay backdrop so tapping outside closes the nav
+const navOverlay = document.createElement('div');
+navOverlay.classList.add('nav-overlay');
+document.body.appendChild(navOverlay);
+
+function closeMobileNav() {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    navOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
 hamburger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
     hamburger.classList.toggle('open');
-    navLinks.classList.toggle('open');
+    navOverlay.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
 });
+
+navOverlay.addEventListener('click', closeMobileNav);
 
 // Close menu when a link is clicked
 document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        navLinks.classList.remove('open');
-    });
+    link.addEventListener('click', closeMobileNav);
 });
 
 // ========================
