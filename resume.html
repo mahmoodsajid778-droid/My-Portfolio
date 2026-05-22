@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umar Sajid | Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *, *::before, *::after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink: #ff3258;
+            --pink-dim: rgba(255, 50, 88, 0.12);
+            --pink-border: rgba(255, 50, 88, 0.35);
+            --white: #ffffff;
+            --off-white: #ffffffc6;
+            --light-gray: #a8b2d8;
+            --black: #010101;
+            --card-bg: #0e0e16;
+            --border: #1e1e2e;
+        }
+
+        html {
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            background-color: var(--black);
+            color: var(--off-white);
+            font-size: 1.6rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        ul { list-style: none; }
+
+        /* ── TOP BAR ─────────────────────────── */
+        .top-bar {
+            background: rgba(1,1,1,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1.4rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+        }
+
+        .top-bar-logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--pink);
+        }
+
+        .top-bar a.back-link {
+            font-size: 1.5rem;
+            color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: color 0.25s;
+        }
+
+        .top-bar a.back-link:hover { color: var(--white); }
+
+        .print-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2.6rem;
+            background-color: var(--pink);
+            color: var(--white);
+            font-family: 'Jost', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            border: 2px solid var(--pink);
+            border-radius: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .print-btn:hover {
+            background-color: transparent;
+            color: var(--pink);
+        }
+
+        /* ── RESUME WRAPPER ──────────────────── */
+        .resume-wrapper {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 3rem 6rem;
+        }
+
+        /* ── HEADER ─────────────────────────── */
+        .resume-header {
+            padding: 4rem 0 3.5rem;
+            border-bottom: 2px solid var(--pink);
+            margin-bottom: 3.5rem;
+        }
+
+        .resume-name {
+            font-size: 5.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.1rem;
+            line-height: 1.1;
+        }
+
+        .resume-title {
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--pink);
+            margin-top: 0.6rem;
+            letter-spacing: 0.15rem;
+            text-transform: uppercase;
+        }
+
+        .resume-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2.8rem;
+            margin-top: 2.2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 1.45rem;
+            color: var(--light-gray);
+        }
+
+        .contact-item i {
+            color: var(--pink);
+            font-size: 1.4rem;
+            width: 1.6rem;
+            text-align: center;
+        }
+
+        .contact-item a:hover { color: var(--white); }
+
+        /* ── SECTIONS ───────────────────────── */
+        .resume-section {
+            margin-bottom: 3.4rem;
+        }
+
+        .resume-section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.25rem;
+            color: var(--pink);
+            border-bottom: 1px solid var(--pink-border);
+            padding-bottom: 0.8rem;
+            margin-bottom: 2.2rem;
+        }
+
+        /* ── SUMMARY ────────────────────────── */
+        .resume-summary p {
+            font-size: 1.55rem;
+            color: var(--off-white);
+            line-height: 1.8;
+        }
+
+        /* ── EXPERIENCE / EDUCATION ─────────── */
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 2rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .timeline-meta {
+            padding-top: 0.3rem;
+        }
+
+        .timeline-date {
+            font-size: 1.35rem;
+            color: var(--light-gray);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .timeline-org {
+            font-size: 1.3rem;
+            color: var(--pink);
+            margin-top: 0.3rem;
+        }
+
+        .timeline-body h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-body ul {
+            margin-top: 0.8rem;
+            padding-left: 1.8rem;
+            list-style: disc;
+        }
+
+        .timeline-body ul li {
+            font-size: 1.45rem;
+            color: var(--off-white);
+            margin-bottom: 0.4rem;
+        }
+
+        .timeline-body p {
+            font-size: 1.45rem;
+            color: var(--off-white);
+            margin-top: 0.5rem;
+        }
+
+        /* ── SKILLS ─────────────────────────── */
+        .skills-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.4rem;
+        }
+
+        .skills-group h4 {
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 1.1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: var(--pink-dim);
+            border: 1px solid var(--pink-border);
+            color: var(--off-white);
+            font-size: 1.3rem;
+            padding: 0.45rem 1.2rem;
+            border-radius: 0.5rem;
+            font-family: 'Jost', sans-serif;
+        }
+
+        /* ── PROJECTS ───────────────────────── */
+        .projects-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .project-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 0.8rem;
+            padding: 2rem 2.2rem;
+            transition: border-color 0.3s;
+        }
+
+        .project-item:hover {
+            border-color: var(--pink-border);
+        }
+
+        .project-item h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.7rem;
+        }
+
+        .project-item p {
+            font-size: 1.35rem;
+            color: var(--off-white);
+            margin-bottom: 1.1rem;
+            line-height: 1.65;
+        }
+
+        .project-item-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .project-item-tags span {
+            background: var(--pink-dim);
+            border: 1px solid var(--pink-border);
+            color: var(--light-gray);
+            font-size: 1.2rem;
+            padding: 0.3rem 1rem;
+            border-radius: 0.4rem;
+        }
+
+        .project-item-links {
+            display: flex;
+            gap: 1.8rem;
+        }
+
+        .project-item-links a {
+            font-size: 1.35rem;
+            color: var(--pink);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.25s;
+        }
+
+        .project-item-links a:hover { opacity: 0.75; }
+
+        .project-badge {
+            display: inline-block;
+            background: var(--pink);
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.2rem 1rem;
+            border-radius: 0.4rem;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.05rem;
+        }
+
+        /* ── PRINT ──────────────────────────── */
+        @media print {
+            body {
+                background: #fff;
+                color: #111;
+                font-size: 10pt;
+            }
+
+            :root {
+                --pink: #cc1e3f;
+                --off-white: #222;
+                --light-gray: #555;
+                --card-bg: #f9f9f9;
+                --border: #ddd;
+                --pink-border: rgba(204,30,63,0.3);
+                --pink-dim: rgba(204,30,63,0.06);
+                --white: #000;
+            }
+
+            .top-bar, .print-btn { display: none !important; }
+
+            .resume-wrapper {
+                margin: 0;
+                padding: 1cm 1.4cm;
+                max-width: 100%;
+            }
+
+            .resume-name { font-size: 28pt; }
+            .resume-title { font-size: 11pt; }
+
+            .project-item, .timeline-body ul li, .contact-item,
+            .resume-summary p { font-size: 9pt; }
+
+            .timeline-item { gap: 1rem; }
+            .projects-list { grid-template-columns: 1fr 1fr; }
+
+            a { color: inherit; }
+        }
+
+        /* ── RESPONSIVE ─────────────────────── */
+        @media (max-width: 680px) {
+            .resume-name { font-size: 3.8rem; }
+            .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
+            .skills-block { grid-template-columns: 1fr; }
+            .projects-list { grid-template-columns: 1fr; }
+            .resume-wrapper { padding: 0 1.8rem 5rem; }
+            .top-bar { padding: 1.2rem 2rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span class="top-bar-logo">US</span>
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </div>
+        <button class="print-btn" onclick="window.print()">
+            <i class="fas fa-print"></i> Print / Save PDF
+        </button>
+    </div>
+
+    <!-- RESUME -->
+    <div class="resume-wrapper">
+
+        <!-- HEADER -->
+        <header class="resume-header">
+            <h1 class="resume-name">Umar Sajid</h1>
+            <p class="resume-title">Front-End Developer</p>
+            <div class="resume-contact">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Bata pur, Lahore, Pakistan</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+923407166377">+92 340 7166377</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:mahmoodsajid778@gmail.com">mahmoodsajid778@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/umar-sajid1" target="_blank" rel="noopener noreferrer">linkedin.com/in/umar-sajid1</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/mahmoodsajid778-droid" target="_blank" rel="noopener noreferrer">github.com/mahmoodsajid778-droid</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- SUMMARY -->
+        <section class="resume-section resume-summary">
+            <h2 class="resume-section-title">Summary</h2>
+            <p>Highly motivated Front-End Developer with hands-on experience in HTML, CSS, JavaScript, and React.js, backed by a BS in Computer Science with a specialization in Artificial Intelligence and Machine Learning. Passionate about building clean, responsive, and user-friendly web interfaces. Currently expanding expertise into back-end technologies with the goal of becoming a Full-Stack Developer.</p>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="resume-section">
+            <h2 class="resume-section-title">Experience</h2>
+
+            <div class="timeline-item">
+                <div class="timeline-meta">
+                    <div class="timeline-date">2025 &ndash; Present</div>
+                    <div class="timeline-org">MBU Devs</div>
+                </div>
+                <div class="timeline-body">
+                    <h3>Front-End Web Developer</h3>
+                    <ul>
+                        <li>Designed and developed responsive user interfaces using HTML, CSS, and JavaScript.</li>
+                        <li>Improved website usability and performance across multiple devices.</li>
+                        <li>Collaborated with team members to implement modern front-end features.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="resume-section">
+            <h2 class="resume-section-title">Education</h2>
+
+            <div class="timeline-item">
+                <div class="timeline-meta">
+                    <div class="timeline-date">2021 &ndash; 2025</div>
+                    <div class="timeline-org">UMT, Lahore</div>
+                </div>
+                <div class="timeline-body">
+                    <h3>Bachelor of Science in Computer Science (BSCS)</h3>
+                    <p>University of Management and Technology, Lahore. Specialized in front-end development, React Native, and modern JavaScript frameworks with hands-on projects in web and mobile applications.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="resume-section">
+            <h2 class="resume-section-title">Skills</h2>
+            <div class="skills-block">
+                <div class="skills-group">
+                    <h4>Technical</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">React Native</span>
+                        <span class="skill-tag">Git &amp; GitHub</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">Responsive Design</span>
+                    </div>
+                </div>
+                <div class="skills-group">
+                    <h4>Soft Skills</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">Teamwork</span>
+                        <span class="skill-tag">Time Management</span>
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Effective Communication</span>
+                        <span class="skill-tag">Critical Thinking</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="resume-section">
+            <h2 class="resume-section-title">Projects</h2>
+            <div class="projects-list">
+
+                <div class="project-item">
+                    <h3>Netflix Clone</h3>
+                    <p>Secure login/signup, dynamic movie browsing, and a responsive UI using React.js, Firebase Auth, and TMDB API.</p>
+                    <div class="project-item-tags">
+                        <span>React.js</span><span>Firebase</span><span>TMDB API</span><span>CSS</span>
+                    </div>
+                    <div class="project-item-links">
+                        <a href="https://react-eval-movie-app-sepia.vercel.app/signin" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="https://github.com/mahmoodsajid778-droid/first-demo-repo" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h3>Titan Fitness Gym Website</h3>
+                    <p>Modern responsive gym site with membership plans, class schedules, trainer profiles, and a contact section.</p>
+                    <div class="project-item-tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive Design</span>
+                    </div>
+                    <div class="project-item-links">
+                        <a href="https://titan-fitness-gym-website-seven.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="https://github.com/mahmoodsajid778-droid/Titan-Fitness-Gym-Website" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>Fully responsive portfolio showcasing projects and technical skills, optimized for all screen sizes.</p>
+                    <div class="project-item-tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive Design</span>
+                    </div>
+                    <div class="project-item-links">
+                        <a href="https://github.com/mahmoodsajid778-droid/My-Portfolio" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <span class="project-badge">Final Year Project</span>
+                    <h3>Automated Cardiac Segmentation</h3>
+                    <p>Deep learning system for automated cardiac image segmentation to support medical image analysis and heart disease monitoring.</p>
+                    <div class="project-item-tags">
+                        <span>Python</span><span>TensorFlow</span><span>Deep Learning</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div><!-- /resume-wrapper -->
+
+</body>
+</html>

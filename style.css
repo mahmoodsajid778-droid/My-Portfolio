@@ -150,15 +150,6 @@ h1, h2, h3, h4 {
     gap: 1.2rem;
 }
 
-.show-project-btn {
-    display: inline-block;
-    margin-top: 1.4rem;
-    padding: 1rem 2.5rem;
-    font-size: 1.5rem;
-    width: 100%;
-    text-align: center;
-}
-
 /* ========================
    NAVBAR
 ======================== */
